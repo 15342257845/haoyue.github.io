@@ -88,6 +88,22 @@
                 interval: '2000'
             });
         });
+        
+        
+        window.onload = function () {
+    //弹出一个提示弹框
+    setTimeout(() => {
+        layer.open({
+            title: '提示',
+            type: 1,
+            content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:30px';>任何访问该网站的用户,你好！</br>该网站上传至GitHub，因为国内访问速度很慢，所以导致该项目图片加载很慢，还请您稍加等待！</br>目前展示的是简化版，功能无法使用，还请您见谅！</div>",
+            //宽高
+            area: ['400px', '400px'],
+        });
+
+    }, 1500)
+
+}
     </script>
 </body>
 
