@@ -49,7 +49,7 @@
             <div class="rightcenter">
                 <li>皓 月 云 存 储</li>
                 <li>开 启 云 记 忆 时 代</li>
-                <a href="Login.html" id="LoginButtonA" style="animation:sun 2s infinite;">
+                <a href="#" id="LoginButtonA" onclick="login()" style="animation:sun 2s infinite;">
                     从这里开始
                 </a>
             </div>
@@ -90,19 +90,14 @@
         });
         
         
-       window.onload = async function () {
-            //弹出一个提示弹框
-            setTimeout(() => {
-                layer.open({
-                    title: '提示',
-                    type: 1,
-                    content: "<div style='text-align: center;margin:40px 0 20px 0;font-size:20px';>任何访问该网站的用户,你好！</br></br></br>该网站上传至GitHub，因为国内访问速度很慢，所以导致该项目图片加载很慢，还请您稍加等待！</br></br>目前展示的是简化版，功能无法使用，还请您见谅！</div>",
-                    //宽高
-                    area: ['500px', '340px'],
-                });
-
-            }, 500)
-
+       function login() {
+            layer.open({
+                title: '温馨提示',
+                type: 1,
+                content: "<div style='text-align: center;margin:40px 0 20px 0;font-size:20px';>任何访问该网站的用户,你好！</br></br></br>因为国内访问GitHub速度很慢，所以导致该项目图片加载较慢，还请您稍加等待！</br></br>目前展示的是简化版，功能无法使用，还请您见谅！</br></br></br><a href='Login.html'><div style='width:200px;height:50px;text-align:center;line-height:50px;background-color:#2F4056;color:white;border-radius:10px;margin:0px auto'>继续访问</div></a></div>",
+                //宽高
+                area: ['500px', '400px'],
+            });
         }
     </script>
 </body>
