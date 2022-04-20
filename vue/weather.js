@@ -44,12 +44,12 @@ var app = new Vue({
                 .catch(function (err) { })
         },
         queryWeather() {
-          //  this.forecastList = [];
+            app.forecastList = [];
 
           //  axios.get(`http://wthrcdn.etouch.cn/weather_mini?city=${this.city}`)
              //   .then(res => {
             //        console.log(res);
-                    this.forecastList =  [
+                    app.forecastList =  [
              {
                  type: '多云',
                  low: '低温16℃',
