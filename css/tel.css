@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    height: 100%;
+    background-image: linear-gradient(#e66465, #9198e5);
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.left-content {
+    margin: 20px 0 0 80px;
+    width: 300px;
+    height: 80px;
+
+    float: left;
+}
+
+.moon1 {
+    background: url("../img/moon1.jpg");
+    width: 80px;
+    height: 80px;
+    background-size: 100%;
+    float: left;
+    border-radius: 40px;
+
+}
+
+.moontext {
+    line-height: 80px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 35px;
+    color: black;
+
+}
+
+.left-content a {
+    text-decoration: none;
+
+}
+
+
+.righttext {
+    float: right;
+    height: 100px;
+    width: 300px;
+    line-height: 100px;
+    padding: 10px 60px 0 0;
+
+    font-weight: 300;
+    font-size: 30px;
+    color: black;
+}
+
+.box {
+    width: 1300px;
+    height: 550px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #ebebeb;
+    border-radius: 10px;
+    box-shadow: 15px 15px 15px gray;
+    z-index: 99;
+}
+
+.boxleft {
+    width: 560px;
+    height: 500px;
+    position: relative;
+    float: left;
+    margin:70px 0 0 0;
+}
+
+/* 全选按钮 */
+.allcheck{
+    width: 80px;
+    height: 30px;
+    font-size: 20px;
+    position: absolute;
+    top: -45px;
+    left: 20px;
+}
+
+/* 通讯录文字 */
+.teltext{
+    width: 130px;
+    height: 40px;
+    font-size: 30px;
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-30px);
+    
+}
+
+
+/* 删除按钮 */
+.delbutton{
+    width: 130px;
+    height: 40px;
+    font-size: 30px;
+    position: absolute;
+    top: -55px;
+    left: 470px;
+    
+    
+}
+.tel {
+    width: 600px;
+    height: 470px;
+    overflow: hidden;
+    overflow-y: scroll;
+    position: relative;
+    float: left;
+    border-radius: 10px;
+    
+}
+
+
+.zimufor{
+   width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.teldata  div li i{
+    margin: 0 10px 0 10px;
+}
+
+.teldata  div li  span{
+    font-size:20px;
+}
+
+.teldata div a li:hover{
+    background-color: #ebebeb;
+}
+
+.teldata  div{
+    
+    line-height: 55px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navigation {
+    width: 20px;
+    height: 475px;
+    float: left;
+    margin: 68px 0 0 48px;
+
+}
+.navigation ul li{
+    width: 15px;
+    height: 18px;
+    list-style: none;
+    float: left;
+}
+
+
+
+
+
+ul {
+    background-color: white;
+}
+
+.line {
+    width: 43px;
+    height: 100%;
+    background-color: gray;
+    float: left;
+    margin-left: 16px;
+}
+
+.right {
+    width: 570px;
+    height: 450px;
+    border: 5px solid gray;
+    float: left;
+    margin: 70px 0 0 20px;
+    border-radius: 5px;
+  
+}
+.layui-form{
+    margin-top: 20px
+}
+.textarea{
+    width: 400px;
+    height: 150px;
+    border: 1px solid slategrey; 
+    float: left;
+    font-size: 20px;
+}
+
+.update{
+    width: 80%;
+    margin: 20px 0 0 70px;
+
+}
+
+/* 去掉number框的上下箭头 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+		-webkit-appearance: none !important;
+			margin: 0;
+}
+.sex{
+    margin: 27px 0 73px 53px;
+    
+}
+.sexradio{
+    margin: 0 0 0 20px;
+    width: 200px;
+    height: 30px;
+    float: left;
+}
+
+.sexlable{
+   
+    font-size: 15px;
+    float: left;
+
+}
+.radio{
+    width: 37px;
+    height: 21px;
+    display: inline-block;
+}
+.cebianlan{
+    width: 120px;
+    height: 330px;
+    position: fixed;
+    top: 200px;
+    background :rgba(255,255,255,0.2);
+    left:-120px ;
+    transition: ease-in-out 1s;
+    z-index: 999;
+    float: left;
+    border-radius: 0 5px 5px 0 ;
+}
+.cebianlan img{
+    margin:50px 0 0 8px;
+    width:45px;
+    height:45px
+}
+.cebianlan_text{
+    width: 40px;
+    height: 130px;
+    background :rgba(255,255,255,0.5);
+    position: absolute;
+    left: 120px;
+    top:50%;
+    transform: translateY(-65px);
+    font-size: 23px;
+    text-align: center;
+    border-radius: 0 5px 5px 0;
+    line-height:40px;
+}

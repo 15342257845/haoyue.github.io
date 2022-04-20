@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background-image: linear-gradient(#e66465, #9198e5);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+
+.left-content {
+    margin: 30px 0 0 80px;
+    width: 300px;
+    height: 80px;
+    float: left;
+}
+
+.moon1 {
+    background: url("../img/moon1.jpg");
+    width: 80px;
+    height: 80px;
+    background-size: 100%;
+    float: left;
+    border-radius: 40px;
+
+}
+
+.moontext {
+    line-height: 80px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 35px;
+    color: black;
+
+}
+
+.left-content a {
+    text-decoration: none;
+
+}
+
+#LoginCenter {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 500px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+
+}
+
+.Login {
+    padding: 30px 0 0 40px;
+
+}
+
+.LoginBlue {
+    width: 80px;
+    height: 5px;
+    background: rgb(0, 153, 255);
+    border-radius: 5px;
+    margin: 5px 0 0 38px;
+}
+
+.username {
+    padding: 40px 0 0 130px;
+
+}
+
+.password {
+    padding: 40px 0 0 130px;
+}
+
+#usertext {
+    background-color: transparent;
+    width: 190px;
+    height: 28px;
+    border-radius: 5px;
+    border: 1px solid rgba(200, 200, 200, 0.1);
+    margin: 0 0 0 10px;
+    font-size: 18px;
+
+}
+
+#textline {
+    width: 200px;
+    height: 2px;
+    background-color: rgb(0, 153, 255);
+    margin: 2px 0 0 170px;
+    transition: 0.4s;
+    border-radius: 5px;
+}
+
+#passtext {
+    background-color: transparent;
+    width: 190px;
+    height: 28px;
+    border-radius: 5px;
+    border: 1px solid rgba(200, 200, 200, 0.1);
+    margin: 0 0 0 10px;
+    font-size: 18px;
+}
+
+#passline {
+    width: 200px;
+    height: 2px;
+    background-color: rgb(0, 153, 255);
+    margin: 2px 0 0 170px;
+    transition: 0.4s;
+    border-radius: 5px;
+}
+
+.text {
+    margin: 20px 0 0 140px;
+    float: left;
+}
+
+.text a {
+    color: black;
+    text-decoration: none;
+    font-size: 14;
+}
+
+.text a:nth-child(2) {
+    margin: 0 0 0 140px;
+}
+
+.text a:hover {
+    color: gray;
+}
+
+.LoginButton {
+    width: 260px;
+    height: 40px;
+    background-color: black;
+    border-radius: 10px;
+    margin: 10px 0 0 130px;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-size: 21px;
+
+
+}
+
+
+#loginmessage {
+    float: left;
+    width: 260px;
+    height: 20px;
+    text-align: center;
+    margin: 25px 0 0 130px;
+    color: red;
+}

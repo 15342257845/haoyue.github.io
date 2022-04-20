@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    height: 100%;
+    background-image: linear-gradient(#e66465, #9198e5);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.left-content {
+    margin: 20px 0 0 80px;
+    width: 300px;
+    height: 80px;
+    float: left;
+}
+
+.moon1 {
+
+    width: 80px;
+    height: 80px;
+    background-size: 100%;
+    float: left;
+    border-radius: 40px;
+    z-index: 999;
+}
+
+.moontext {
+    line-height: 80px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 35px;
+    color: black;
+
+}
+
+.left-content a {
+    text-decoration: none;
+
+}
+
+
+.center {
+    width: 1300px;
+
+    height: 350px;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+
+
+}
+
+
+
+
+.rightcontent {
+    float: right;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 100%;
+    padding: 10px 50px 0 0;
+
+}
+
+
+.rightcenter li {
+    padding: 0 0 20px 0;
+    font-size: 42px;
+    font-weight: 200;
+}
+
+
+
+#LoginButtonA {
+    text-decoration: none;
+    line-height: 70px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 5px;
+    width: 350px;
+    height: 70px;
+    background-color: white;
+    text-align: center;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin: 30px 0 0 0;
+}
+
+
+
+
+#LoginButtonA::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: -5px;
+    bottom: -5px;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 50px;
+    filter: blur(20px);
+    z-index: -1;
+}

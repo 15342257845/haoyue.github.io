@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    height: 100%;
+    background-image: linear-gradient(#e66465, #9198e5);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#imgopen {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+}
+
+#lefticon {
+    width: 0;
+    height: 0;
+    border-top: 80px solid transparent;
+    border-bottom: 70px solid transparent;
+    border-right: 80px solid white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5%;
+    margin: auto;
+    float: left;
+    z-index: 999;
+}
+
+#righticon {
+    width: 0;
+    height: 0;
+    border-top: 80px solid transparent;
+    border-bottom: 70px solid transparent;
+    border-left: 80px solid white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 90%;
+    margin: auto;
+    float: left;
+    z-index: 999;
+}
+
+#imgopenimg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 1200px;
+    max-height: 750px;
+}
+
+.closebutton {
+    color: white;
+    position: absolute;
+    left: 88%;
+    top: 5%;
+}
+
+.left-content {
+    margin: 20px 0 0 80px;
+    width: 300px;
+    height: 80px;
+    float: left;
+}
+
+.moon1 {
+    background: url("../img/moon1.jpg");
+    width: 80px;
+    height: 80px;
+    background-size: 100%;
+    float: left;
+    border-radius: 40px;
+
+}
+
+.moontext {
+    line-height: 80px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 35px;
+    color: black;
+
+}
+
+.left-content a {
+    text-decoration: none;
+
+}
+
+
+.righttext {
+    float: right;
+    height: 100px;
+    width: 300px;
+    line-height: 100px;
+    padding: 10px 60px 0 0;
+    font-weight: 300;
+    font-size: 30px;
+    color: black;
+}
+
+/* 以上是上面那一行的显示 */
+
+.box {
+    width: 1300px;
+    min-height: 600px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 120px;
+    margin: auto;
+    float: left;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 1;
+    position: absolute;
+}
+
+.box_content {
+    width: 1300px;
+    height: 527px;
+    float: left;
+    overflow: hidden;
+    overflow-y: visible;
+
+}
+
+.title {
+    width: 1300px;
+    height: 70px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.322);
+    float: left;
+    line-height: 70px;
+
+}
+
+
+
+/* 全选按钮 */
+.allcheck {
+    width: 80px;
+    height: 30px;
+    font-size: 20px;
+    float: left;
+    line-height: 70px;
+    margin: 0 0 0 20px;
+}
+
+.titletext {
+    width: 100px;
+    height: 70px;
+    margin-left: 520px;
+    float: left;
+    font-size: 30px;
+}
+
+.button {
+    width: 400px;
+    height: 50px;
+    line-height: 70px;
+    float: right;
+    margin-right: -40px;
+}
+
+.insert {
+    width: 250px;
+    height: 100px;
+    background-color: wheat;
+    position: absolute;
+    top: 80px;
+    z-index: 999;
+    left: 900px;
+    border-radius: 10px;
+    display: none;
+}
+
+.sanjiao {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    position: absolute;
+    top: -20px;
+    left: 80px;
+    border-bottom: 30px solid wheat;
+
+}
+
+.img {
+    width: 230px;
+    height: 170px;
+
+    margin: 20px 10px 10px 15px;
+    float: left;
+}
+
+.imgtop {
+    width: 230px;
+    height: 30px;
+
+    float: left;
+}
+
+.imgbottom {
+    float: left;
+    width: 230px;
+    height: 170px;
+}
+
+.imgtopcheckbox {
+    width: 20px;
+    height: 20px;
+    margin: 5px 0 0 0;
+}
+
+.imghover {
+    max-width: 230px;
+    max-height: 140px;
+}
+
+.imghover:hover {
+    transform: scale3d(1.2, 1.2, 1);
+    transition: 0.3s;
+}
+
+.imgdate {
+    width: 200px;
+    height: 40px;
+    color: white;
+    font-size: 35px;
+    margin: 60px auto;
+}
+
+.cebianlan {
+    width: 120px;
+    height: 330px;
+    position: fixed;
+    top: 200px;
+    background: rgba(255, 255, 255, 0.2);
+    left: -120px;
+    transition: ease-in-out 1s;
+    z-index: 999;
+    float: left;
+    border-radius: 0 5px 5px 0;
+}
+
+.cebianlan img {
+    margin: 50px 0 0 8px;
+    width: 45px;
+    height: 45px
+}
+
+.cebianlan_text {
+    width: 40px;
+    height: 130px;
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 120px;
+    top: 50%;
+    transform: translateY(-65px);
+    font-size: 23px;
+    text-align: center;
+    border-radius: 0 5px 5px 0;
+    line-height: 40px;
+}
