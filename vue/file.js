@@ -5,8 +5,8 @@ Vue.config.productionTip = false;
 var vue = new Vue({
     el: '.background',
     data: {
-        id: '',//账户id
-        name: '',//账户的昵称
+        id: '18',//账户id
+        name: '周诚',//账户的昵称
         filearray: '',//查询到的所有数据
         filearraycopy: '',//复制一份查询到的默认数据
         sortistrue: '1',//用来判断排序是否被点击
@@ -19,12 +19,12 @@ var vue = new Vue({
         filesize: [],//大小的数组
         filetype: [],//类型的数组
         filenamelength: "",//数组的长度
-        imgsrc: '../皓月云服务主/img/',//图片地址
+        imgsrc: 'img/',//图片地址
         idarray: [],
         inputname: '',//输入框的模糊搜索
         inputarray: '',//模糊搜索得到的结果
         filesort: [],//文件排序
-        filesrc: 'D:/xmapp/htdocs/phpcurd/fileupload/'
+        filesrc: '',
     },
 
     methods: {
@@ -79,34 +79,34 @@ var vue = new Vue({
                 //请求后端的删除接口
                 layer.confirm('<div style="font-size:25px;text-align:center;margin: 2px 0 0 0;">确定要删除所选项吗？</div>', { icon: 3, title: '提示', area: ['340px', '180px'] }, function (index) {
                     //do something
-                    axios.post("http://localhost/phpcurd/file.php?action=delete",
-                        "id=" + vue.idarray + "")
-                        .then(res => {
-                            if (res.data.message == 1) {
-                                layer.open({
-                                    title: '提示',
-                                    type: 1,
-                                    content: "<div style='font-size:25px;text-align:center';>删除成功！</div>",
-                                    //宽高
-                                    area: ['200px', '150px'],
-                                    time: 1100,
-                                });
+                    //     axios.post("http://localhost/phpcurd/file.php?action=delete",
+                    //         "id=" + vue.idarray + "")
+                    //         .then(res => {
+                    //      if (res.data.message == 1) {
+                    layer.open({
+                        title: '提示',
+                        type: 1,
+                        content: "<div style='font-size:25px;text-align:center';>删除成功！</div>",
+                        //宽高
+                        area: ['200px', '150px'],
+                        time: 1100,
+                    });
 
-                                setTimeout(res => {
-                                    window.location.href = "file.html"
-                                }, 1200)
+                    setTimeout(res => {
+                        window.location.href = "file.html"
+                    }, 1200)
 
-                            }
-                            else {
-                                layer.open({
-                                    title: '提示',
-                                    type: 1,
-                                    content: "<div style='font-size:25px;text-align:center';>删除失败！</div>",
-                                    //宽高
-                                    area: ['200px', '150px'],
-                                });
-                            }
-                        })
+                    //      }
+                    //      else {
+                    //     layer.open({
+                    //         title: '提示',
+                    //         type: 1,
+                    //         content: "<div style='font-size:25px;text-align:center';>删除失败！</div>",
+                    //         //宽高
+                    //         area: ['200px', '150px'],
+                    //     });
+                    // }
+                    //  })
                     layer.close(index);
                 });
             }
@@ -250,45 +250,45 @@ var vue = new Vue({
             console.log(vue.filenamelength);
 
             console.log(vue.filesize);
-            axios.post('http://localhost/phpcurd/file.php?action=file'
-                , file
-                , {
-                    headers: {
-                        "content-type": "multipart/form-data"
-                    }
-                }).then((res) => {
-                    //当文件上传成功之后，再发送保存文件信息的请求
-                    axios.post('http://localhost/phpcurd/file.php?action=filemessage', "&filereferenceid=" + vue.filereferenceid + "&filename=" + vue.filename + "&filedatetime=" + vue.insertdatetime + "&filenamelength=" + vue.filenamelength + "&filetype=" + vue.filetype + "&filesize=" + vue.filesize + ""
-                    ).then((res) => {
-                        if (res.data.message == '1') {
-                            layer.open({
-                                title: '提示',
-                                type: 1,
-                                content: '<div style="text-align: center;margin:20px 0 20px 0;font-size:30px";>上传成功！</div>',
-                                //宽高
-                                area: ['300px', '200px'],
-                                time: 1800
-                            });
-                            setTimeout(() => {
-                                window.location.href = 'file.html'
-                            }, 1300);
-                        }
-                        else {
-                            layer.open({
-                                title: '提示',
-                                type: 1,
-                                content: '<div style="text-align: center;margin:20px 0 20px 0;font-size:30px";><span style="color:red">上传失败！</span></div>',
-                                //宽高
-                                area: ['300px', '200px'],
-                                time: 1800
-                            });
-                            setTimeout(() => {
-                                window.location.href = 'file.html'
-                            }, 1300);
-                        }
+            // axios.post('http://localhost/phpcurd/file.php?action=file'
+            //     , file
+            //     , {
+            //         headers: {
+            //             "content-type": "multipart/form-data"
+            //         }
+            //     }).then((res) => {
+            //当文件上传成功之后，再发送保存文件信息的请求
+            //   axios.post('http://localhost/phpcurd/file.php?action=filemessage', "&filereferenceid=" + vue.filereferenceid + "&filename=" + vue.filename + "&filedatetime=" + vue.insertdatetime + "&filenamelength=" + vue.filenamelength + "&filetype=" + vue.filetype + "&filesize=" + vue.filesize + ""
+            //   ).then((res) => {
+            //      if (res.data.message == '1') {
+            layer.open({
+                title: '提示',
+                type: 1,
+                content: '<div style="text-align: center;margin:20px 0 20px 0;font-size:30px";>上传成功！</div>',
+                //宽高
+                area: ['300px', '200px'],
+                time: 1800
+            });
+            setTimeout(() => {
+                window.location.href = 'file.html'
+            }, 1300);
+            //     }
+            //    else {
+            //       layer.open({
+            //           title: '提示',
+            //           type: 1,
+            //           content: '<div style="text-align: center;margin:20px 0 20px 0;font-size:30px";><span style="color:red">上传失败！</span></div>',
+            //宽高
+            //          area: ['300px', '200px'],
+            //           time: 1800
+            //       });
+            //       setTimeout(() => {
+            //          window.location.href = 'file.html'
+            //       }, 1300);
+            //    }
 
-                    });
-                });
+            //   });
+            // });
 
         }
     }
@@ -299,96 +299,164 @@ var vue = new Vue({
 
 //当页面加载时，判断sessionStorage里有没有值，没有则跳回登录页
 window.onload = function () {
-    if (window.sessionStorage.length == 0) {
-        window.location.href = 'Login.html';
+    // if (window.sessionStorage.length == 0) {
+    //     window.location.href = 'Login.html';
+    // }
+    // else {
+    //     //把登录页传过来的值赋值给相对应的字段
+
+    //     vue.id = window.sessionStorage.id;
+    //     vue.name = window.sessionStorage.name;
+    //     vue.filereferenceid = window.sessionStorage.id;
+    //     console.log(window.sessionStorage);
+
+
+    //文件信息的请求
+    // axios.post('http://localhost/phpcurd/file.php?action=select', "id=" + vue.id + "")
+    // .then(res => {
+    //vue.filearray = res.data.users;
+    // vue.filearraycopy = vue.filearray;
+    // console.log(vue.filearray);
+    vue.filearray = [
+        {
+            filedatetime: '2022/04/01 20:45:47',
+            fileid: 1,
+            filename: 'carteam.sql',
+            filereferenceid: '18',
+            filesize: '3842',
+            filetype: "未知"
+        },
+        {
+            filedatetime: '2022/03/01 20:45:47',
+            fileid: 2,
+            filename: '1.jpg',
+            filereferenceid: '18',
+            filesize: '30842',
+            filetype: "图片"
+        },
+        {
+            filedatetime: '2022/02/01 20:45:47',
+            fileid: 3,
+            filename: '	新建文本文档.txt',
+            filereferenceid: '18',
+            filesize: '1002000',
+            filetype: "文档"
+        },
+        {
+            filedatetime: '2022/01/01 20:45:47',
+            fileid: 4,
+            filename: 'sound.4ca49076.mp3',
+            filereferenceid: '18',
+            filesize: '30000',
+            filetype: "音频"
+        },
+        {
+            filedatetime: '2021/04/01 20:45:47',
+            fileid: 5,
+            filename: '游戏菜单.pdf',
+            filereferenceid: '18',
+            filesize: '3000842',
+            filetype: "文档"
+        },
+        {
+            filedatetime: '2021/08/01 20:45:47',
+            fileid: 6,
+            filename: 'vue的视频.mp4',
+            filereferenceid: '18',
+            filesize: '50842',
+            filetype: "视频"
+        },
+        {
+            filedatetime: '2021/03/01 20:45:47',
+            fileid: 7,
+            filename: 'student.sql',
+            filereferenceid: '18',
+            filesize: '600042',
+            filetype: "未知"
+        },
+        {
+            filedatetime: '2020/04/01 20:45:47',
+            fileid: 8,
+            filename: 'vuex.mp4',
+            filereferenceid: '18',
+            filesize: '7000842',
+            filetype: "视频"
+        },
+
+    ];
+
+    vue.filearraycopy = vue.filearray;
+    //图片类型的分类
+    for (var i = 0; i < vue.filearray.length; i++) {
+        switch (vue.filearray[i].filetype) {
+            case '视频': vue.filearray[i].filetype = '视频.png'; break
+            case '音频': vue.filearray[i].filetype = '音乐.png'; break
+            case '图片': vue.filearray[i].filetype = '图片.png'; break
+            case '压缩': vue.filearray[i].filetype = '压缩文件.png'; break
+            case '文档': vue.filearray[i].filetype = '文本.png'; break
+            case '未知': vue.filearray[i].filetype = '文件未知.png'; break
+        }
+
     }
-    else {
-        //把登录页传过来的值赋值给相对应的字段
+    //slice是左闭右开，包含开头不包含结尾
 
-        vue.id = window.sessionStorage.id;
-        vue.name = window.sessionStorage.name;
-        vue.filereferenceid = window.sessionStorage.id;
-        console.log(window.sessionStorage);
-
-
-        //文件信息的请求
-        axios.post('http://localhost/phpcurd/file.php?action=select', "id=" + vue.id + "")
-            .then(res => {
-                vue.filearray = res.data.users;
-                vue.filearraycopy = vue.filearray;
-                console.log(vue.filearray);
-
-                //图片类型的分类
-                for (var i = 0; i < vue.filearray.length; i++) {
-                    switch (vue.filearray[i].filetype) {
-                        case '视频': vue.filearray[i].filetype = '视频.png'; break
-                        case '音频': vue.filearray[i].filetype = '音乐.png'; break
-                        case '图片': vue.filearray[i].filetype = '图片.png'; break
-                        case '压缩': vue.filearray[i].filetype = '压缩文件.png'; break
-                        case '文档': vue.filearray[i].filetype = '文本.png'; break
-                        case '未知': vue.filearray[i].filetype = '文件未知.png'; break
-                    }
-
-                }
-                //slice是左闭右开，包含开头不包含结尾
-
-                for (var i = 0; i < vue.filearray.length; i++) {
-                    var a = vue.filearray[i].filesize;
-                    if (a.length >= 4 && a.length <= 6) {
-                        vue.filearray[i].filesize = a.slice(0, a.length - 3) + '.' + a.slice(0, a.length - (a.length - 2)) + 'KB';
-                    }
-                    else if (a.length == 7) {
-                        vue.filearray[i].filesize = a.slice(0, a.length - 6) + '.' + a.slice(0, a.length - 6) + 'MB';
-                    }
-                    else if (a.length == 1) {
-                        vue.filearray[i].filesize = vue.filearray[i].filesize + 'KB'
-                    }
-                }
-            })
+    for (var i = 0; i < vue.filearray.length; i++) {
+        var a = vue.filearray[i].filesize;
+        if (a.length >= 4 && a.length <= 6) {
+            vue.filearray[i].filesize = a.slice(0, a.length - 3) + '.' + a.slice(0, a.length - (a.length - 2)) + 'KB';
+        }
+        else if (a.length == 7) {
+            vue.filearray[i].filesize = a.slice(0, a.length - 6) + '.' + a.slice(0, a.length - 6) + 'MB';
+        }
+        else if (a.length == 1) {
+            vue.filearray[i].filesize = vue.filearray[i].filesize + 'KB'
+        }
     }
+    // })
+    //}
 };
 
-//监听文本框的数据
-document.getElementById('selectinput').addEventListener("keyup", (function (e) { //这是一个自运行函数
-    var t = null;
-    return function () { //真正的事件函数在这里
-        clearTimeout(t); //每次触发，都把前面的定时器关闭，尽管第一次定时器并不存在
-        t = setTimeout(function () { //开启新的定时器
+// //监听文本框的数据
+// document.getElementById('selectinput').addEventListener("keyup", (function (e) { //这是一个自运行函数
+//     var t = null;
+//     return function () { //真正的事件函数在这里
+//         clearTimeout(t); //每次触发，都把前面的定时器关闭，尽管第一次定时器并不存在
+//         t = setTimeout(function () { //开启新的定时器
 
-            axios.post('http://localhost/phpcurd/file.php?action=inputselect', "name=" + vue.inputname + "")
-                .then(res => {
-                    console.log(res.data.inputselect);
+//             axios.post('http://localhost/phpcurd/file.php?action=inputselect', "name=" + vue.inputname + "")
+//                 .then(res => {
+//                     console.log(res.data.inputselect);
 
-                    vue.filearray = res.data.inputselect;
-                    //图片类型的分类
-                    for (var i = 0; i < vue.filearray.length; i++) {
-                        switch (vue.filearray[i].filetype) {
-                            case '视频': vue.filearray[i].filetype = '视频.png'; break
-                            case '音频': vue.filearray[i].filetype = '音乐.png'; break
-                            case '图片': vue.filearray[i].filetype = '图片.png'; break
-                            case '压缩': vue.filearray[i].filetype = '压缩文件.png'; break
-                            case '文档': vue.filearray[i].filetype = '文本.png'; break
-                            case '未知': vue.filearray[i].filetype = '文件未知.png'; break
-                        }
-                    }
-                    for (var i = 0; i < vue.filearray.length; i++) {
-                        var a = vue.filearray[i].filesize;
-                        if (a.length >= 4 && a.length <= 6) {
-                            vue.filearray[i].filesize = a.slice(0, a.length - 3) + '.' + a.slice(0, a.length - (a.length - 2)) + 'KB';
-                        }
-                        else if (a.length == 7) {
-                            vue.filearray[i].filesize = a.slice(0, a.length - 6) + '.' + a.slice(0, a.length - 6) + 'MB';
-                        }
-                        else if (a.length == 1) {
-                            vue.filearray[i].filesize = vue.filearray[i].filesize + 'KB'
-                        }
-                    }
-                })
+//                     vue.filearray = res.data.inputselect;
+//                     //图片类型的分类
+//                     for (var i = 0; i < vue.filearray.length; i++) {
+//                         switch (vue.filearray[i].filetype) {
+//                             case '视频': vue.filearray[i].filetype = '视频.png'; break
+//                             case '音频': vue.filearray[i].filetype = '音乐.png'; break
+//                             case '图片': vue.filearray[i].filetype = '图片.png'; break
+//                             case '压缩': vue.filearray[i].filetype = '压缩文件.png'; break
+//                             case '文档': vue.filearray[i].filetype = '文本.png'; break
+//                             case '未知': vue.filearray[i].filetype = '文件未知.png'; break
+//                         }
+//                     }
+//                     for (var i = 0; i < vue.filearray.length; i++) {
+//                         var a = vue.filearray[i].filesize;
+//                         if (a.length >= 4 && a.length <= 6) {
+//                             vue.filearray[i].filesize = a.slice(0, a.length - 3) + '.' + a.slice(0, a.length - (a.length - 2)) + 'KB';
+//                         }
+//                         else if (a.length == 7) {
+//                             vue.filearray[i].filesize = a.slice(0, a.length - 6) + '.' + a.slice(0, a.length - 6) + 'MB';
+//                         }
+//                         else if (a.length == 1) {
+//                             vue.filearray[i].filesize = vue.filearray[i].filesize + 'KB'
+//                         }
+//                     }
+//                 })
 
-        }, 400);
-    }
+//         }, 400);
+//     }
 
-})());
+// })());
 
 
 
