@@ -44,43 +44,43 @@ var app = new Vue({
                 .catch(function (err) { })
         },
         queryWeather() {
-            app.forecastList = [];
+            //app.forecastList = [];
 
           //  axios.get(`http://wthrcdn.etouch.cn/weather_mini?city=${this.city}`)
              //   .then(res => {
             //        console.log(res);
-                    app.forecastList =  [
-             {
-                 type: '多云',
-                 low: '低温16℃',
-                 high: '高温25℃',
-                 date: '1日星期一'
-             },
-             {
-                 type: '晴',
-                 low: '低温20℃',
-                 high: '高温30℃',
-                 date: '2日星期二'
-             },
-             {
-                 type: '小雨',
-                 low: '低温15℃',
-                 high: '高温20℃',
-                 date: '3日星期三'
-             },
-             {
-                type: '阴',
-                 low: '低温13℃',
-                 high: '高温20℃',
-                 date: '4日星期四'
-             },
-             {
-                 type: '多云',
-                 low: '低温16℃',
-                 high: '高温25℃',
-                 date: '5日星期五'
-             },
-         ];;
+                    this.forecastList =  [
+                            {
+                                type: '多云',
+                                low: '低温16℃',
+                                high: '高温25℃',
+                                date: '1日星期一'
+                            },
+                            {
+                                type: '晴',
+                                low: '低温20℃',
+                                high: '高温30℃',
+                                date: '2日星期二'
+                            },
+                            {
+                                type: '小雨',
+                                low: '低温15℃',
+                                high: '高温20℃',
+                                date: '3日星期三'
+                            },
+                            {
+                                type: '阴',
+                                low: '低温13℃',
+                                high: '高温20℃',
+                                date: '4日星期四'
+                            },
+                            {
+                                type: '多云',
+                                low: '低温16℃',
+                                high: '高温25℃',
+                                date: '5日星期五'
+                            },
+                        ];
              //   })
              //   .catch(err => {
             //       console.log(err);
