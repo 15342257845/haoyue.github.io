@@ -4,8 +4,8 @@ Vue.config.productionTip = false;
 var vue = new Vue({
     el: '.background',
     data: {
-        id: '',
-        name: '',
+        id: '18',
+        name: '周诚',
         username: '',
         sex: '',
         nameistrue: false,//右上角的弹框
@@ -30,30 +30,20 @@ var vue = new Vue({
         //修改为普通身份
         updateuser: function (e) {
             vue.updateid = e.target.parentNode.parentNode.parentNode.children[0].innerText;
-            if (vue.updateid == vue.id) {
-                layer.open({
-                    title: '提示',
-                    type: 1,
-                    content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:25px;color:red'>自己不能更改自己的身份！</div>",
+            //if (vue.updateid == vue.id) {
+              //  layer.open({
+               //     title: '提示',
+                //    type: 1,
+                //    content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:25px;color:red'>自己不能更改自己的身份！</div>",
                     //宽高
-                    area: ['350px', '150px'],
-                });
-            }
-            else {
-                axios.post('http://localhost/phpcurd/LogRegUpdate.php?action=updateuser',
-                    "id=" + vue.updateid + "")
-                    .then(res => {
-                        if (res.data.message == 0) {
-                            layer.open({
-                                title: '提示',
-                                type: 1,
-                                content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:30px';>修改失败！</div>",
-                                //宽高
-                                area: ['300px', '200px'],
-                            });
-                        }
-
-                        else {
+                //    area: ['350px', '150px'],
+             //   });
+           // }
+           // else {
+             //   axios.post('http://localhost/phpcurd/LogRegUpdate.php?action=updateuser',
+                  //  "id=" + vue.updateid + "")
+                //    .then(res => {
+                 //       if (res.data.message == 0) {
                             layer.open({
                                 title: '提示',
                                 type: 1,
@@ -61,6 +51,16 @@ var vue = new Vue({
                                 //宽高
                                 area: ['300px', '200px'],
                             });
+                   //     }
+
+                    //    else {
+                      //      layer.open({
+                      //          title: '提示',
+                      //          type: 1,
+                      //          content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:30px';>修改成功！</div>",
+                                //宽高
+                      //          area: ['300px', '200px'],
+                        //    });
                             setTimeout(() => {
                                 window.location.href = 'manage.html'
                             }, 1000)
@@ -75,32 +75,32 @@ var vue = new Vue({
         },
         //修改为管理员身份
         updatemanage: function (e) {
-            vue.updateid = ''
-            vue.updateid = e.target.parentNode.parentNode.parentNode.children[0].innerText;
-            if (vue.updateid == vue.id) {
-                layer.open({
-                    title: '提示',
-                    type: 1,
-                    content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:25px;color:red'>自己不能更改自己的身份！</div>",
+          //  vue.updateid = ''
+          //  vue.updateid = e.target.parentNode.parentNode.parentNode.children[0].innerText;
+          //  if (vue.updateid == vue.id) {
+              //  layer.open({
+               //     title: '提示',
+               //     type: 1,
+               //     content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:25px;color:red'>自己不能更改自己的身份！</div>",
                     //宽高
-                    area: ['350px', '150px'],
-                });
-            }
-            else {
-                axios.post('http://localhost/phpcurd/LogRegUpdate.php?action=updatemanage',
-                    "id=" + vue.updateid + "")
-                    .then(res => {
-                        if (res.data.message == 0) {
+              //      area: ['350px', '150px'],
+              //  });
+          //  }
+          //  else {
+              //  axios.post('http://localhost/phpcurd/LogRegUpdate.php?action=updatemanage',
+                  //  "id=" + vue.updateid + "")
+                   // .then(res => {
+                   //     if (res.data.message == 0) {
                             layer.open({
                                 title: '提示',
                                 type: 1,
-                                content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:30px';>修改失败！</div>",
+                                content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:30px';>修改成功！</div>",
                                 //宽高
                                 area: ['300px', '200px'],
                             });
 
-                        }
-                        else {
+                     //   }
+                     //   else {
                             layer.open({
                                 title: '提示',
                                 type: 1,
@@ -111,7 +111,7 @@ var vue = new Vue({
                             setTimeout(() => {
                                 window.location.href = 'manage.html'
                             }, 1000)
-                        }
+                    //    }
                     })
             }
         },
@@ -120,10 +120,10 @@ var vue = new Vue({
         updatepasswordbutton: function (e) {
 
             if (/^(?![0-9]+$)[a-z0-9]{8,20}$/.test(vue.password)) {
-                vue.$refs.passwordbuttonreg.innerHTML = "";
-                axios.post('http://localhost/phpcurd/LogRegUpdate.php?action=buttonupdate', "id=" + vue.getid + "&password=" + vue.password + "")
-                    .then(res => {
-                        if (res.data.message == 1) {
+               // vue.$refs.passwordbuttonreg.innerHTML = "";
+               // axios.post('http://localhost/phpcurd/LogRegUpdate.php?action=buttonupdate', "id=" + vue.getid + "&password=" + vue.password + "")
+                   // .then(res => {
+                  //      if (res.data.message == 1) {
                             layer.open({
                                 title: '提示',
                                 type: 1,
@@ -134,20 +134,20 @@ var vue = new Vue({
                             setTimeout(() => {
                                 window.location.href = 'manage.html'
                             }, 1100)
-                        }
-                        else {
-                            layer.open({
-                                title: '提示',
-                                type: 1,
-                                content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:30px';>修改失败！</div>",
+                    //    }
+                   //     else {
+                         //   layer.open({
+                         //       title: '提示',
+                        //        type: 1,
+                        //        content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:30px';>修改失败！</div>",
                                 //宽高
-                                area: ['300px', '200px'],
-                            });
+                       //         area: ['300px', '200px'],
+                      //      });
                             setTimeout(() => {
                                 window.location.href = 'manage.html'
                             }, 1100)
-                        }
-                    })
+                    //    }
+                   // })
             }
             else {
                 vue.$refs.passwordbuttonreg.innerHTML = "<div style='color:red'>必须包含数字、英文字母且大于7小于21位</div>";
@@ -187,10 +187,10 @@ var vue = new Vue({
                 //请求后端的删除接口
                 layer.confirm('<div style="font-size:25px;text-align:center;margin:3px 0 0 0">确定要删除所选项吗？</div>', { icon: 3, title: '提示', area: ['360px', '180px'] }, function (index) {
                     //do something
-                    axios.post('http://localhost/phpcurd/LogRegUpdate.php?action=deleteuser',
-                        "id=" + vue.updateid + "")
-                        .then(res => {
-                            if (res.data.message == 0) {
+                 //   axios.post('http://localhost/phpcurd/LogRegUpdate.php?action=deleteuser',
+                   //     "id=" + vue.updateid + "")
+                   //     .then(res => {
+                    //        if (res.data.message == 0) {
                                 layer.open({
                                     title: '提示',
                                     type: 1,
@@ -199,20 +199,20 @@ var vue = new Vue({
                                     area: ['300px', '200px'],
                                 });
 
-                            }
-                            else {
-                                layer.open({
-                                    title: '提示',
-                                    type: 1,
-                                    content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:30px';>删除成功！</div>",
+                         //   }
+                        //    else {
+                        //        layer.open({
+                         //           title: '提示',
+                          //          type: 1,
+                           //         content: "<div style='text-align: center;margin:20px 0 20px 0;font-size:30px';>删除成功！</div>",
                                     //宽高
-                                    area: ['300px', '200px'],
-                                });
+                            //        area: ['300px', '200px'],
+                           //     });
                                 setTimeout(() => {
                                     window.location.href = 'manage.html'
                                 }, 1000)
-                            }
-                        })
+                        //    }
+                      //  })
                 }
                 )
             }
@@ -222,31 +222,31 @@ var vue = new Vue({
 })
 
 //当页面加载时，判断sessionStorage里有没有值，没有则跳回登录页
-window.onload = function () {
-    if (window.sessionStorage.length == 0) {
-        window.location.href = 'index.html';
-    }
-    else {
-        //把登录页传过来的值赋值给相对应的字段
-        vue.name = window.sessionStorage.name;
-        vue.id = window.sessionStorage.id;
-        vue.username = window.sessionStorage.username;
-        vue.sex = window.sessionStorage.sex;
+//window.onload = function () {
+    //if (window.sessionStorage.length == 0) {
+   //     window.location.href = 'index.html';
+   // }
+   // else {
+     //   //把登录页传过来的值赋值给相对应的字段
+     ////   vue.name = window.sessionStorage.name;
+    //   vue.id = window.sessionStorage.id;
+     //   vue.username = window.sessionStorage.username;
+    //    vue.sex = window.sessionStorage.sex;
 
-        axios.get('http://localhost/phpcurd/LogRegUpdate.php?action=manageselect')
-            .then(res => {
-                vue.userarray = res.data.users;
-                console.log(vue.userarray);
+    //    axios.get('http://localhost/phpcurd/LogRegUpdate.php?action=manageselect')
+      //      .then(res => {
+      //          vue.userarray = res.data.users;
+      //          console.log(vue.userarray);
 
 
                 //判断是什么用户
-                for (let i = 0; i < vue.userarray.length; i++) {
-                    vue.userarray[i].ismanage == "1" ? vue.userarray[i].ismanage = '管理员' : vue.userarray[i].ismanage = '普通用户';
-                }
+       //         for (let i = 0; i < vue.userarray.length; i++) {
+          //          vue.userarray[i].ismanage == "1" ? vue.userarray[i].ismanage = '管理员' : vue.userarray[i].ismanage = '普通用户';
+        //        }
 
-            })
-    }
-}
+        //    })
+    //}
+//}
 
 
 
@@ -254,24 +254,24 @@ window.onload = function () {
 
 
 //监听用户名文本框的数据
-document.getElementById('selectinput').addEventListener("keyup", (function (e) { //这是一个自运行函数
-    var t = null;
-    return function () { //真正的事件函数在这里
-        clearTimeout(t); //每次触发，都把前面的定时器关闭，尽管第一次定时器并不存在
-        t = setTimeout(function () { //开启新的定时器
+//document.getElementById('selectinput').addEventListener("keyup", (function (e) { //这是一个自运行函数
+ //   var t = null;
+  //  return function () { //真正的事件函数在这里
+  //      clearTimeout(t); //每次触发，都把前面的定时器关闭，尽管第一次定时器并不存在
+   //     t = setTimeout(function () { //开启新的定时器
+//
+   //         axios.post('http://localhost/phpcurd/LogRegUpdate.php?action=inputselect', "name=" + vue.inputname + "")
+    //            .then(res => {
+    //                console.log(res.data.inputselect);
+    //                vue.userarray = res.data.inputselect;
+    //                //判断是什么用户
+     //               for (let i = 0; i < vue.userarray.length; i++) {
+       //                 vue.userarray[i].ismanage == "1" ? vue.userarray[i].ismanage = '管理员' : vue.userarray[i].ismanage = '普通用户';
+      //              }
+      //          })
+      //  }, 300);
+  //  }
 
-            axios.post('http://localhost/phpcurd/LogRegUpdate.php?action=inputselect', "name=" + vue.inputname + "")
-                .then(res => {
-                    console.log(res.data.inputselect);
-                    vue.userarray = res.data.inputselect;
-                    //判断是什么用户
-                    for (let i = 0; i < vue.userarray.length; i++) {
-                        vue.userarray[i].ismanage == "1" ? vue.userarray[i].ismanage = '管理员' : vue.userarray[i].ismanage = '普通用户';
-                    }
-                })
-        }, 300);
-    }
-
-})());
+//})());
 
 
