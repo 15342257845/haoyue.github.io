@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入外部的css样式 -->
+    <link rel="stylesheet" href="../皓月云服务主/css/file.css">
+    <!-- 引入外部layui的css样式 -->
+    <link rel="stylesheet" href="../皓月云服务主/layui/css/layui.css">
+    <!-- 引入外部layui的js -->
+    <script src="../皓月云服务主/layui/layui.js"></script>
+    <!-- 引入jquery -->
+    <script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+    <!-- 引入axios -->
+    <script src="https://cdn.staticfile.org/axios/0.26.0/axios.min.js">	</script>
+    <title>文件</title>
+</head>
+
+<body>
+    <div class="background">
+        <!-- 这是侧边栏模块 -->
+        <div class="cebianlan" ref="cebianlan">
+            <a href="tel.html"><img src="../皓月云服务主/img/tel.png"></a>
+            <a href=" picture.html"><img src="../皓月云服务主/img/img.png"></a>
+            <a href="file.html"><img src="../皓月云服务主/img/文件夹.png"></a>
+            <a href="music.html"><img src="../皓月云服务主/img/音乐.png"></a>
+            <a href="note.html"><img src="../皓月云服务主/img/记事本.png"></a>
+            <a href="weather.html"><img src="../皓月云服务主/img/天气.png"></a>
+            <a href="#" @click="cebianlan">
+                <div class="cebianlan_text">导航栏</div>
+            </a>
+        </div>
+
+
+        <div class="left-content">
+            <div class="moon1"></div>
+            <a href="Navigation.html">
+                <div class="moontext">皓月云存储</div>
+            </a>
+        </div>
+        <div class="right-content">
+            <a href="#">
+                <div class="righttext">欢迎您 | <a href="Navigation.html">{{name}}</a></div>
+            </a>
+        </div>
+        <!-- 上面是页面的头部分 -->
+
+        <!-- 中心内容 -->
+        <div class="box layui-anim layui-anim-downbit">
+            <div class="title">
+                <div class="allcheck">
+                    <input type="checkbox" @click="checkall" style="width: 20px; height: 20px;" ref="allcheckchild">
+                    &nbsp;全选
+                </div>
+
+                <div class="selectinput"> <input id="selectinput" v-model="inputname" type="text" maxlength="25"
+                        style="width: 150px;height: 25px;line-height: 60px;" placeholder="查找的文件名...">
+                </div>
+                <div class="titletext">文&nbsp;&nbsp;&nbsp;件
+
+                </div>
+                <!-- 两个业务按钮 -->
+                <div class="button">
+                    <!-- 添加按钮 -->
+                    <i class="layui-btn" style="width: 100px;font-style:normal;font-size: 20px;"
+                        @click="insertbutton">上&nbsp;传
+                    </i>
+                    <!-- 点击添加弹出的添加框 -->
+                    <div class="insert layui-anim layui-anim-downbit" ref="insert">
+                        <div class="sanjiao"></div> <!-- 这是个三角形 -->
+                        <!-- 这是添加框最关键的地方 -->
+                        <form id="videoForm" style="margin:20px 0 0 30px">
+                            <input type="file" ref="file" @change="insert" multiple>
+                        </form>
+
+                        <div style="width: 222px;height: 60px;line-height: 30px;text-align: center;">因为服务器资源压力略大</br>
+                            目前只支持<span style="color: red;">8M</span>大小的文件的上传
+                        </div>
+                    </div>
+                    <!-- 删除框 -->
+                    <i class="layui-btn layui-btn-danger" style="width: 100px;font-style:normal;font-size: 20px;"
+                        @click="deletecheck">删&nbsp;除
+                    </i>
+                </div>
+            </div>
+
+            <!-- 标题下面的内容 -->
+            <div class="contentbox">
+                <table>
+                    <tr>
+                        <td class="checkbox"></td>
+
+                        <td class="name">文件名 <a href="#" class="sort" @click="sortfile">↑↓</a></td>
+                        <td class="size">大小 </td>
+                        <td class="datetime">日期</td>
+                        <td class="action">操作</td>
+                    </tr>
+
+                </table>
+                <div class="content">
+                    <table>
+                        <tr v-for="(item,index) in filearray" class="filearray">
+                            <td class="contentcheckbox">
+                                <input type="checkbox" class="check" :id="['check'+index]">
+                            </td>
+                            <td class="contenttype"><img :src="imgsrc+''+item.filetype"></td>
+                            <td class="contentname">{{item.filename}}</td>
+                            <td class="contentsize">{{item.filesize}}</td>
+                            <td class="contentdatetime">{{item.filedatetime}}</td>
+                            <td class="contentaction">
+                                <a :href="filesrc+item.filename" target="_blank" download>
+                                    <div class="layui-btn layui-btn-normal "
+                                        style="height: 31px; width: 74px;margin: 0 0 0 17px;line-height: 31px;">下载
+                                    </div>
+                                </a>
+                            </td>
+                            <td style="display: none;">{{item.fileid}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- 引入vue文件 -->
+<script type="text/javascript" src="vue/vue.js"></script>
+<!-- 引入本页面的js文件 -->
+<script src="../皓月云服务主/vue/file.js"></script>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>皓月云存储</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0,minimum-scale=1.0">
+
+    <!-- 引入layui -->
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+
+    <!-- 引入外部的css样式 -->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <!-- 左边的内容 -->
+    <div class="left-content">
+        <!-- 月球图片 -->
+        <img src="img/moon1.jpg" class="moon1">
+        <a href="index.html">
+            <!-- 月球图片右边的文字 -->
+            <div class="moontext">皓月云存储</div>
+        </a>
+    </div>
+
+
+    <!-- 整个页面的中心 -->
+    <div class="center">
+        <!-- 一个layui的轮播图 -->
+        <div class="layui-carousel" style="float: left;" id="test1">
+            <div carousel-item>
+                <div><img src="img/春天.png" width="650px" height="400px"></div>
+                <div><img src="img/夏天.png" width="650px" height="400px"></div>
+                <div><img src="img/秋天.png" width="650px" height="400px"></div>
+                <div><img src="img/冬天.png" width="650px" height="400px"></div>
+
+            </div>
+        </div>
+
+        <!-- 右边的内容 -->
+        <div class="rightcontent">
+
+            <!-- 右边内容里面的文字和按钮 -->
+            <div class="rightcenter">
+                <li>皓 月 云 存 储</li>
+                <li>开 启 云 记 忆 时 代</li>
+                <a href="Login.html" id="LoginButtonA" style="animation:sun 2s infinite;">
+                    从这里开始
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script type=" text/javascript"></script>
+
+    <script>
+        //按钮特效的代码
+        var button = document.getElementById('LoginButtonA');
+        const runkeyframes = ` @keyframes sun{
+            60% {
+            background-position: 400% 0;
+        }
+    }`;
+        const style = document.createElement('style');
+        // 设置style属性
+        style.type = 'text/css';
+        // 将 keyframes样式写入style内
+        style.innerHTML = runkeyframes;
+        // 将style样式存放到head标签
+        document.getElementById('LoginButtonA').appendChild(style);
+
+
+
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test1',
+                width: '650px', //设置容器宽度
+                arrow: 'always',
+                height: '400px',//始终显示箭头
+                interval: '2000'
+            });
+        });
+    </script>
+</body>
+
+</html>

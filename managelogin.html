@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入外部的css样式 -->
+    <link rel="stylesheet" href="../皓月云服务主/css/managelogin.css">
+    <!-- 引入外部layui的css样式 -->
+    <link rel="stylesheet" href="../皓月云服务主/layui/css/layui.css">
+    <!-- 引入外部layui的js -->
+    <script src="../皓月云服务主/layui/layui.js"></script>
+    <!-- 引入jquery -->
+    <script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+    <!-- 引入axios -->
+    <script src="https://cdn.staticfile.org/axios/0.26.0/axios.min.js">	</script>
+    <!-- 引入外部的js滑动验证文件 -->
+    <script type="text/javascript" src="vue/slide.js"></script>
+
+
+    <title>管理员登录</title>
+
+</head>
+
+<body>
+    <div id="slideBar" class="layui-anim layui-anim-up" style="float: left;display: none;margin-left: 50px;"></div>
+    <div class="background">
+        <div class="left-content">
+            <img src="img/moon1.jpg" class="moon1">
+            <a href="index.html">
+                <div class="moontext">皓月云存储</div>
+            </a>
+        </div>
+
+        <div id="LoginCenter" class="layui-anim layui-anim-upbit">
+            <h1 class="Login">管理员</h1>
+            <div class="LoginBlue"></div>
+
+            <!-- 用户名 -->
+            <p class="username">
+                <img src="img/用户名.png" style=" vertical-align: middle;" width="30px">
+                <input type="text" placeholder="请输入用户名" id="usertext" maxlength="11" v-model="username">
+            </p>
+            <div id="textline"></div>
+
+            <!-- 密码 -->
+            <p class="password">
+                <img src="img/密码.png" style=" vertical-align: middle;" width="30px">
+                <input placeholder="请输入密码" type="password" id="passtext" maxlength="20" v-model="password"
+                    @keyup.enter="loginuser">
+            </p>
+            <div id="passline"></div>
+
+            <!-- 展示登录反馈的地方 -->
+            <div id="loginmessage"></div>
+            <a href="#" class="LoginButton" @click="loginuser">登 录</a>
+
+        </div>
+
+    </div>
+
+
+</body>
+<!-- 引入vue文件 -->
+<script type="text/javascript" src="vue/vue.js"></script>
+<!-- 引入本页面的js文件 -->
+<script src="../皓月云服务主/vue/managelogin.js"></script>
+
+</html>

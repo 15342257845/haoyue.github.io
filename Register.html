@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入外部的css样式 -->
+    <link rel="stylesheet" href="css/register.css">
+    <!-- 引入外部layui的css样式 -->
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <!-- 引入外部layui的js -->
+    <script src="layui/layui.js"></script>
+    <!-- 引入jquery -->
+    <script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+    <!-- 引入axios -->
+    <script src="https://cdn.staticfile.org/axios/0.26.0/axios.min.js">	</script>
+    <!-- 引入外部的js文件 -->
+    <script type="text/javascript" src="vue/slide.js"></script>
+
+    <title>注册</title>
+    <style>
+
+    </style>
+</head>
+
+
+
+<body>
+    <div id="slideBar" class="layui-anim layui-anim-up" style="float: left;display: none;margin-left: 50px;"></div>
+    <div class="background">
+        <div class="left-content">
+            <img src="img/moon1.jpg" class="moon1">
+            <a href="index.html">
+                <div class="moontext">皓月云存储</div>
+            </a>
+        </div>
+
+        <form class="layui-form">
+            <div class="RegCenter layui-anim layui-anim-upbit">
+                <h1 class="Reg">注 册</h1>
+                <div class="RegBlue"></div>
+
+                <!-- 用户名的位置 -->
+
+                <div class="layui-form-item jiange">
+
+                    <label class="layui-form-label">
+                        <img src="img/用户名.png" width="40px" style=" margin-top: -10px;">
+                    </label>
+
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" id="username" onblur="usernameistrue()" name="title"
+                            style="width: 250px;height: 42px;border: 1px solid slategrey;float: left;" required
+                            lay-verify="required" placeholder="请输入手机号" autocomplete="off" v-model="username"
+                            ref="username" />
+                        <div id="userreg" ref="userreg"></div>
+                    </div>
+
+
+                </div>
+
+                <!-- 密码的位置 -->
+                <div class="layui-form-item jiange">
+                    <label class="layui-form-label"> <img src="img/密码.png" width="40px"
+                            style=" margin-top: -10px;"></label>
+                    <div class="layui-input-block">
+                        <input type="password" name="password" id="password"
+                            style="width: 250px;height: 42px;border: 1px solid slategrey; float: left;" required
+                            v-model="password" onblur="passwordistrue()" lay-verify="required" placeholder="请输入密码"
+                            autocomplete="off" class="layui-input" ref="password">
+                        <div id="passreg" ref="passreg"></div>
+                    </div>
+
+                </div>
+
+                <!-- 确认密码的位置 -->
+                <div class="layui-form-item jiange">
+                    <label class="layui-form-label"> <img src="img/密码.png" width="40px"
+                            style=" margin-top: -10px;"></label>
+                    <div class="layui-input-block">
+                        <input type="password" name="title" id="againpassword"
+                            style="width: 250px;height: 42px;border: 1px solid slategrey; float: left;" required
+                            onblur="againpasswordistrue()" v-model="againpassword" lay-verify="required"
+                            placeholder="请再次输入密码" autocomplete="off" class="layui-input" ref="againpassword">
+                        <div id="againpassreg" ref="againpassreg"></div>
+                    </div>
+                </div>
+
+                <!-- 性别的位置 -->
+
+                <div class="layui-form-item jiange">
+                    <label class="layui-form-label">
+                        <i class="layui-icon layui-icon-refresh" style="font-size: 30px;"></i></label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" id="man" title="男" checked>
+                        <input type="radio" name="sex" title="女">
+                    </div>
+                </div>
+
+                <!-- 昵称的位置 -->
+                <div class="layui-form-item jiange">
+                    <label class="layui-form-label"><i class="layui-icon layui-icon-face-smile"
+                            style="font-size: 30px;"></i>
+                    </label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" id="name" v-model="name"
+                            style="width: 210px;height: 42px;border: 1px solid slategrey; float: left;" required
+                            maxlength="10" lay-verify="required" placeholder="输入或随机一个昵称" autocomplete="off"
+                            onblur="nameistrue()" class="layui-input">
+                        <i id="randomname" @click="randomname" class="layui-icon layui-icon-component namehover"
+                            style="font-size: 35px;float:left;margin-left: 10px;"></i>
+                        &nbsp;&nbsp; <div id="namereg" ref="namereg" style="float:left"></div>
+                    </div>
+                </div>
+
+                <!-- 已有账号？去登录 -->
+                <div style="margin: 20px 0 0 0; text-align: center;"><a href="Login.html">已有账号？去登录</a></div>
+                <!-- 注册按钮 -->
+                <a href="#" class="RegButton" id="RegButton" @click="RegButton">注 册</a>
+
+
+            </div>
+        </form>
+    </div>
+
+
+    <!-- 引入vue文件 -->
+    <script type="text/javascript" src="vue/vue.js"></script>
+    <!-- 引入本页面的js文件 -->
+    <script src="vue/register.js"></script>
+
+
+</body>
+
+
+</html>

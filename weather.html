@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- 引入外部layui的css样式 -->
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <!-- 引入axios -->
+    <script src="https://cdn.staticfile.org/axios/0.26.0/axios.min.js">	</script>
+
+    <title>天气</title>
+
+    <link rel="stylesheet" href="css/weather.css" />
+
+</head>
+
+<body>
+    <div class="background">
+        <!-- 这是侧边栏模块 -->
+        <div class="cebianlan" ref="cebianlan">
+            <a href="tel.html"><img src="img/tel.png"></a>
+            <a href=" picture.html"><img src="img/img.png"></a>
+            <a href="file.html"><img src="img/文件夹.png"></a>
+            <a href="music.html"><img src="img/音乐.png"></a>
+            <a href="note.html"><img src="img/记事本.png"></a>
+            <a href="weather.html"><img src="img/天气.png"></a>
+            <a href="#" @click="cebianlan">
+                <div class="cebianlan_text">导航栏</div>
+            </a>
+        </div>
+
+        <div class="left-content">
+            <div class="moon1"></div>
+            <a href="Navigation.html">
+                <div class="moontext">皓月云存储</div>
+            </a>
+        </div>
+        <div class="right-content">
+            <a href="#">
+                <div class="righttext">欢迎您 | <a href="Navigation.html">{{name}}</a></div>
+            </a>
+        </div>
+        <div class="wrap" id="wrap">
+            <div class="search_form">
+                <div class="logo">
+                    <img src="img/moon1.jpg" class="img" alt="logo" /></br>
+                    <div style="text-align: center;font-weight: 100; font-size: 25px;color: white;"> 为您提供最准确的的天气信息~
+                    </div>
+                </div>
+                <div class="form_group">
+                    <input type="text" class="input_txt" placeholder="请输入查询的天气" v-model="city"
+                        @keyup.enter="queryWeather" />
+                    <button class="input_sub" @click="queryWeather">
+                        搜 索
+                    </button>
+                </div>
+                <div class="hotkey">
+                    <!-- <a href="javascript:;" @click="clickSearch('北京')">北京</a>
+          <a href="javascript:;" @click="clickSearch('上海')">上海</a>
+          <a href="javascript:;" @click="clickSearch('广州')">广州</a>
+          <a href="javascript:;" @click="clickSearch('深圳')">深圳</a> -->
+                    <a href="javascript:;" v-for="city in hotCitys" @click="clickSearch(city)">{{ city }}</a>
+                </div>
+            </div>
+            <ul class="weather_list">
+
+                <a href="#">
+                    <li v-for="(item,index) in forecastList" :key="item.date" onmouseover="getinfo(this)" id="getinfo">
+                        <div class="info_type">
+                            <span class="iconfont">{{ item.type }}</span>
+                        </div>
+                        <div class="info_temp">
+                            <b>{{ item.low}}</b>
+                            ~
+                            <b>{{ item.high}}</b>
+                        </div>
+                        <div class="info_date">
+                            <span>{{ item.date }}</span>
+                        </div>
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script type="text/javascript" src="vue/vue.js"></script>
+    <script src="vue/weather.js"></script>
+</body>
+
+
+</html>

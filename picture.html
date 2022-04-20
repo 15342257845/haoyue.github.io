@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入外部的css样式 -->
+    <link rel="stylesheet" href="css/picture.css">
+    <!-- 引入外部layui的css样式 -->
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <!-- 引入外部layui的js -->
+    <script src="layui/layui.js"></script>
+    <!-- 引入jquery -->
+    <script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+    <!-- 引入axios -->
+    <script src="https://cdn.staticfile.org/axios/0.26.0/axios.min.js">	</script>
+    <title>相册</title>
+</head>
+
+<body>
+    <div class="background">
+        <!-- 这是侧边栏模块 -->
+        <div class="cebianlan" ref="cebianlan">
+            <a href="tel.html"><img src="img/tel.png"></a>
+            <a href=" picture.html"><img src="img/img.png"></a>
+            <a href="file.html"><img src="img/文件夹.png"></a>
+            <a href="music.html"><img src="img/音乐.png"></a>
+            <a href="note.html"><img src="img/记事本.png"></a>
+            <a href="weather.html"><img src="img/天气.png"></a>
+            <a href="#" @click="cebianlan">
+                <div class="cebianlan_text">导航栏</div>
+            </a>
+        </div>
+
+
+        <div id="imgopen" ref="imgopen" class="layui-anim layui-anim-downbit">
+            <div id="lefticon" ref="lefticon" @click="lefticon"></div>
+            <div class="imgdate">{{imgdate}}</div>
+            <img :src='src' id="imgopenimg">
+            <div id="righticon" ref="righticon" @click="righticon"></div>
+            <a href="#" @click="closeopen">
+                <i class="closebutton layui-icon layui-icon-close" style="font-size: 70px;"></i>
+            </a>
+        </div>
+
+
+
+
+        <div class="left-content">
+            <div class="moon1"></div>
+            <a href="Navigation.html">
+                <div class="moontext">皓月云存储</div>
+            </a>
+        </div>
+        <div class="right-content">
+            <a href="#">
+                <div class="righttext">欢迎您 | <a href="Navigation.html">{{name}}</a></div>
+            </a>
+        </div>
+
+        <div class="box layui-anim layui-anim-downbit">
+
+            <div class="title">
+
+                <div class="allcheck">
+                    <input type="checkbox" style="width: 20px; height: 20px;" ref="allcheckchild" @click="checkall">
+                    &nbsp;全选
+                </div>
+
+                <div class="titletext">相&nbsp;&nbsp;&nbsp;册</div>
+
+                <!-- 两个业务按钮 -->
+                <div class="button">
+                    <!-- 添加按钮 -->
+                    <i class="layui-btn layui-btn-normal" style="width: 160px;font-style:normal;font-size: 20px;"
+                        @click="insertbutton">添&nbsp;加
+                    </i>
+
+                    <!-- 点击添加弹出的添加框 -->
+                    <div class="insert layui-anim layui-anim-downbit" ref="insert">
+                        <div class="sanjiao"></div> <!-- 这是个三角形 -->
+                        <!-- 这是添加框最关键的地方 -->
+                        <form id="videoForm" style="margin:20px 0 0 30px">
+                            <input type="file" ref="file" @change="insert" multiple>
+                        </form>
+
+                    </div>
+
+                    <!-- 删除框 -->
+
+                    <i class="layui-btn layui-btn-danger" style="width: 160px;font-style:normal;font-size: 20px;"
+                        @click="deletecheck">删&nbsp;除
+                    </i>
+                </div>
+            </div>
+
+
+            <!-- 以下是渲染图片的html结构 -->
+            <div class="box_content">
+                <div id="imgarray" ref="imgarray">
+                    <div v-for="(item,index) in imgarray">
+                        <div class="img">
+                            <div class="imgtop">
+                                <input type="checkbox" class="imgtopcheckbox" :id="['check'+index]">
+                                <span>{{item.picdate}}</span>
+                                <span style="display: none;">{{item.picid}}</span>
+                                <span style="display: none;">{{index}}</span>
+                            </div>
+                            <div class="imgbottom">
+                                <a href="#" onclick="scaleimg(this)" :id="item.picdate">
+                                    <img :src="imgsrc+''+item.picsrc" class="imghover" ref="item.picdate"
+                                        :id="item.picdate">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- 引入vue文件 -->
+    <script type="text/javascript" src="vue/vue.js"></script>
+    <!-- 引入本页面的js文件 -->
+    <script src="vue/picture.js"></script>
+
+</body>
+
+</html>

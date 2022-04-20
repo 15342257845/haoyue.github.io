@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入外部的css样式 -->
+    <link rel="stylesheet" href="css/tel.css">
+    <!-- 引入外部layui的css样式 -->
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <!-- 引入外部layui的js -->
+    <script src="layui/layui.js"></script>
+    <!-- 引入jquery -->
+    <script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+    <!-- 引入axios -->
+    <script src="https://cdn.staticfile.org/axios/0.26.0/axios.min.js">	</script>
+    <!-- 引入拼音插件 -->
+    <script src="vue/ChinesePY.js"></script>
+    <title>通讯录</title>
+
+</head>
+
+<body>
+    <div class="background">
+        <!-- 这是侧边栏模块 -->
+        <div class="cebianlan" ref="cebianlan">
+            <a href="tel.html"><img src="img/tel.png"></a>
+            <a href=" picture.html"><img src="img/img.png"></a>
+            <a href="file.html"><img src="img/文件夹.png"></a>
+            <a href="music.html"><img src="img/音乐.png"></a>
+            <a href="note.html"><img src="img/记事本.png"></a>
+            <a href="weather.html"><img src="img/天气.png"></a>
+            <a href="#" @click="cebianlan">
+                <div class="cebianlan_text">导航栏</div>
+            </a>
+        </div>
+
+
+        <div class="left-content">
+            <div class="moon1"></div>
+            <a href="Navigation.html">
+                <div class="moontext">皓月云存储</div>
+            </a>
+        </div>
+        <div class="right-content">
+            <a href="#">
+                <div class="righttext">欢迎您 | <a href="Navigation.html">{{name}}</a></div>
+            </a>
+        </div>
+
+        <div class="box  layui-anim layui-anim-downbit">
+
+            <div class="boxleft">
+                <div class="allcheck">
+                    <!-- 全选按钮 -->
+                    <input type="checkbox" @click="checkall" ref="allcheckchild" style="width: 20px; height: 20px;">
+                    &nbsp;全选
+                </div>
+                <div class="teltext">通&nbsp;讯&nbsp;录</div>
+                <div class="delbutton">
+                    <i class="layui-btn layui-btn-danger" style="width: 130px;font-style:normal;font-size: 20px;"
+                        @click="deletecheck">删&nbsp;除</i>
+                </div>
+
+
+                <!-- 整个通讯录模块 -->
+                <div class="tel" id="tel" ref="tel">
+                    <!-- 渲染通讯录数据的模块 -->
+                    <ul v-for="(item,index) in zimu" :id="item">
+                        <!--这是渲染字母 -->
+                        <li class="zimufor">{{item}}</li>
+                        <!--这是渲染字母中的数据 -->
+                        <div class="teldata" id="teldata" ref="teldata" @click="getupdate()"></div>
+                    </ul>
+                </div>
+
+
+
+            </div>
+            <!-- 右侧的导航字母罢了 -->
+            <div class=" navigation">
+                <!-- 使用for循环显示字母 -->
+                <ul style="font-size: 18px;font-size:18px; text-align: center;">
+                    <!-- 一个锚点的拼接方式:href="['#'+item]",很有用 -->
+                    <li v-for="item in zimu">
+                        <a :href="['#'+item]">{{item}}</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 中间的线 -->
+            <div class="line"></div>
+            <!-- 右边的模块 -->
+            <div class="right">
+                <button class="layui-btn" style="width: 130px;margin:-60px 0 0 440px;float: left;"
+                    @click="insert">添&nbsp;&nbsp;加</button>
+
+
+                <form class="layui-form">
+                    <!-- 名字模块 -->
+                    <div class="layui-form-item jiange">
+                        <label class="layui-form-label">
+                            名字：
+                        </label>
+
+                        <div class="layui-input-block">
+                            <input type="text" class="layui-input" ref="telnameupdate" id="username" name=" title"
+                                style="width: 250px;height: 42px;border: 1px solid slategrey;float: left;" required
+                                lay-verify="required" placeholder="请输入姓名" maxlength="15" autocomplete="off"
+                                v-model="telname" />
+                        </div>
+
+
+                    </div>
+
+                    <!-- 电话的位置 -->
+                    <div class="layui-form-item jiange">
+                        <label class="layui-form-label">电话：</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="password" ref="telupdate" id="password"
+                                style="width: 250px;height: 42px;border: 1px solid slategrey; float: left;" required
+                                lay-verify="required" placeholder="请输入电话" maxlength="15" autocomplete="off"
+                                class="layui-input" v-model="tel">
+                        </div>
+                    </div>
+
+                </form>
+
+
+                <!-- 性别的位置 -->
+
+                <div class="sex">
+                    <div class="sexlable">性别：</div>
+
+                    <div class="sexradio">
+                        男 &nbsp;<input type="radio" class="radio" name="sex" id="man" ref="man"
+                            checked>&nbsp;&nbsp;&nbsp;&nbsp;
+                        女&nbsp;<input type="radio" name="sex" id="woman" class="radio" ref="woman">
+                    </div>
+
+                </div>
+
+                <!-- 备注的位置 -->
+                <form class="layui-form">
+                    <div class="layui-form-item jiange">
+                        <label class="layui-form-label">
+                            备注：
+                        </label>
+                        <div class="layui-input-block">
+                            <textarea class="textarea" placeholder="写上对TA的备注..." maxlength="90"
+                                v-model="remark"></textarea>
+                        </div>
+                    </div>
+
+
+                </form>
+                <button id="update" class="layui-btn layui-btn-normal" @click="update"
+                    style="font-size: 25px; width: 400px;margin: 30px 0 0 100px; ">修&nbsp;&nbsp;改</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- 引入vue文件 -->
+    <script type="text/javascript" src="vue/vue.js"></script>
+    <!-- 引入本页面的js文件 -->
+    <script src="vue/tel.js"></script>
+
+</body>
+
+</html>

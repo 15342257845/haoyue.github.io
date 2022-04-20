@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入外部的css样式 -->
+    <link rel="stylesheet" href="../皓月云服务主/css/manage.css">
+    <!-- 引入外部layui的css样式 -->
+    <link rel="stylesheet" href="../皓月云服务主/layui/css/layui.css">
+    <!-- 引入外部layui的js -->
+    <script src="../皓月云服务主/layui/layui.js"></script>
+    <!-- 引入jquery -->
+    <script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+    <!-- 引入axios -->
+    <script src="https://cdn.staticfile.org/axios/0.26.0/axios.min.js">	</script>
+    <!-- 引入外部的js文件 -->
+    <script type="text/javascript" src="vue/slide.js"></script>
+    <title>管理员</title>
+
+
+</head>
+
+<body>
+    <div class="background">
+
+
+
+        <!-- 点击修改密码模块 -->
+        <div class="updatepasswordbox layui-anim layui-anim-downbit" ref="updatepasswordbox">
+            <a href="#" @click="exit">
+                <div class="exit"><img src="../皓月云服务主/img/shutoff.png"></div>
+            </a>
+            <div class="dropdowntext">ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                    class="password">{{getid}}</span>
+
+            </div>
+            <div class="dropdowntext">用户名：<span class="password" class="password">{{getusername}}</span>
+
+            </div>
+            <div class="dropdowntext">新密码：
+                <input class="password" type="text" v-model="password">
+            </div>
+            <!-- 提示 -->
+            <div class="tishi" ref="passwordbuttonreg"></div>
+            <!-- 确认修改密码 -->
+            <button type="button" @click="updatepasswordbutton"
+                class="updatepassword layui-btn layui-btn-radius layui-btn-normal">修改密码</button>
+        </div>
+
+
+
+        <div class="left-content">
+            <div class="moon1"></div>
+            <a href="manage.html">
+                <div class="moontext">皓月云存储</div>
+            </a>
+        </div>
+        <div class="right-content">
+
+            <div class="righttext">管理员 | <a href="#" @click="namedropdown">{{name}} </a>
+
+                <div ref="dropdown" class="dropdown layui-anim  layui-anim-downbit">
+
+                    <button type="button" @click="exitlogin"
+                        class="exitlogin layui-btn layui-btn-radius layui-btn-danger" style="margin: -7px 0 0 16px; width: 270px;
+                       ">退出登录</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- 中心内容 -->
+        <div class="box layui-anim layui-anim-downbit">
+            <div class="title">
+
+
+                <div class="selectinput"> <input id="selectinput" type="text" v-model="inputname" maxlength="25"
+                        style="width: 150px;height: 25px;line-height: 60px;" placeholder="查找的用户...">
+                </div>
+                <div class="titletext">用户列表
+
+                </div>
+                <!-- 两个业务按钮 -->
+                <div class="button">
+
+
+                </div>
+            </div>
+
+            <!-- 标题下面的内容 -->
+            <div class="contentbox">
+                <table>
+                    <tr>
+
+                        <td class="id">id</td>
+                        <td class="name">用户名</td>
+                        <td class="pass">密码</td>
+                        <td class="nichen">用户昵称</td>
+                        <td class="shenfen">身份</td>
+                        <td class="action">操作</td>
+                    </tr>
+
+                </table>
+                <div class="content">
+                    <table>
+                        <tr v-for="(item,index) in userarray" class="filearray">
+
+                            <td class="contentid">{{item.id}}</td>
+                            <td class="contentusername">{{item.username}}</td>
+                            <td class="contentpassword">{{item.password}}</td>
+                            <td class="contentname">{{item.name}}</td>
+                            <td class="contentismanage">
+                                {{item.ismanage}}
+                            </td>
+                            <td class="contentaction">
+                                <a href="#">
+                                    <div class="layui-btn layui-btn-warm" style="height: 31px;
+                                         width: 100px; margin: 0px 0px 0px 15px;line-height: 31px;font-size: 14px;"
+                                        @click="updatepass($event)">
+                                        修改密码
+                                    </div>
+                                </a>
+
+
+                                <a href="#">
+                                    <div class="layui-btn layui-btn-normal " style="height: 31px;
+                                        width: 100px; margin: 0px 0px 0px 15px;line-height: 31px;font-size: 14px;"
+                                        @click="updateuser($event)">
+                                        设为用户
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="layui-btn" style="height: 31px;
+                                        width: 110px; margin: 0px 0px 0px 15px;line-height: 31px;font-size: 14px; "
+                                        @click="updatemanage($event)">
+                                        设为管理员
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="layui-btn layui-btn-danger" style="height: 31px;
+                                        width: 110px; margin: 0px 0px 0px 15px;line-height: 31px;font-size: 14px; "
+                                        @click="deleteuser($event)">
+                                        删除用户
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- 引入vue文件 -->
+<script type="text/javascript" src="vue/vue.js"></script>
+<!-- 引入js文件 -->
+<script src="../皓月云服务主/vue/manage.js"></script>
+
+
+</html>

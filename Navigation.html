@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入外部的css样式 -->
+    <link rel="stylesheet" href="css/navigation.css">
+    <!-- 引入外部layui的css样式 -->
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <!-- 引入外部layui的js -->
+    <script src="layui/layui.js"></script>
+
+    <!-- 引入axios -->
+    <script src="https://cdn.staticfile.org/axios/0.26.0/axios.min.js">	</script>
+    <title>导航</title>
+
+
+</head>
+
+<body>
+    <div class="background">
+
+
+
+        <div class="left-content">
+            <div class="moon1"></div>
+            <a href="Navigation.html">
+                <div class="moontext">皓月云存储</div>
+            </a>
+        </div>
+        <div class="right-content">
+
+            <div class="righttext">欢迎您 | <a href="#" @click="namedropdown">{{name}} </a>
+
+                <div ref="dropdown" class="dropdown layui-anim  layui-anim-downbit">
+                    <!-- 用户名 -->
+                    <div class="dropdowntext">用户名:&nbsp;&nbsp;&nbsp;{{username}}</div>
+                    <!-- 旧密码 -->
+                    <div class="dropdowntext">旧密码：
+                        <input class="password" type="password" v-model="oldpassword">
+                    </div>
+                    <!-- 提示 -->
+                    <div class="tishi" ref="passworderr"></div>
+                    <!-- 新密码 -->
+                    <div class="dropdowntext">新密码：
+                        <input class="password" type="text" @blur="passwordreg" v-model="newpassword">
+                    </div>
+                    <!-- 提示 -->
+                    <div class="tishi" ref="passwordreg"></div>
+                    <!-- 确认修改密码 -->
+                    <button type="button" @click="updatepassword"
+                        class="updatepassword layui-btn layui-btn-radius layui-btn-normal">修改密码</button>
+                    <button type="button" @click="exitlogin"
+                        class="exitlogin layui-btn layui-btn-radius layui-btn-danger"
+                        style="margin: -100px 0 0 16px;">退出登录</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="center">
+            <div class="centerTop">
+                <a href="tel.html" class="one">
+                    <li>通讯录</li>
+
+                </a>
+                <a href="picture.html" class="two">
+                    <li>照片</li>
+                </a>
+                <a href="file.html" class="three">
+                    <li>文件</li>
+                </a>
+
+
+            </div>
+            <div class="centerBottom">
+
+                <a href="music.html" class="four">
+                    <li>音乐</li>
+
+                </a>
+                <a href="note.html" class="five">
+                    <li>便签</li>
+                </a>
+                <a href="weather.html" class="seven">
+                    <li>天气</li>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- 引入vue文件 -->
+<script type="text/javascript" src="vue/vue.js"></script>
+<!-- 引入js文件 -->
+<script src="vue/navigation.js"></script>
+
+
+</html>
